@@ -1,0 +1,14 @@
+go get github.com/dvyukov/go-fuzz/go-fuzz
+go get github.com/dvyukov/go-fuzz/go-fuzz-build
+
+go-fuzz-build github.com/mikioh/fuzzbox/ipaddr
+go-fuzz -bin=./ipaddr-fuzz.zip -workdir=./ipaddr
+
+go-fuzz-build github.com/mikioh/fuzzbox/stun
+go-fuzz -bin=./stun-fuzz.zip -workdir=./stun
+
+CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzbox/tcp
+go-fuzz -bin=./tcp-fuzz.zip -workdir=./tcp
+
+CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzbox/icmp
+go-fuzz -bin=./icmp-fuzz.zip -workdir=./icmp

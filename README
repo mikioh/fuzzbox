@@ -12,3 +12,6 @@ go-fuzz -bin=./tcp-fuzz.zip -workdir=./tcp
 
 CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzbox/icmp
 go-fuzz -bin=./icmp-fuzz.zip -workdir=./icmp
+
+CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzbox/route
+go-fuzz -bin=./route-fuzz.zip -workdir=./route

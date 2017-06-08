@@ -1,17 +1,23 @@
 go get github.com/dvyukov/go-fuzz/go-fuzz
 go get github.com/dvyukov/go-fuzz/go-fuzz-build
 
-go-fuzz-build github.com/mikioh/fuzzbox/ipaddr
+go-fuzz-build github.com/mikioh/fuzzing/ipaddr
 go-fuzz -bin=./ipaddr-fuzz.zip -workdir=./ipaddr
 
-go-fuzz-build github.com/mikioh/fuzzbox/stun
+go-fuzz-build github.com/mikioh/fuzzing/stun
 go-fuzz -bin=./stun-fuzz.zip -workdir=./stun
 
-CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzbox/tcp
+CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzing/tcp
 go-fuzz -bin=./tcp-fuzz.zip -workdir=./tcp
 
-CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzbox/icmp
+CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzing/icmp
 go-fuzz -bin=./icmp-fuzz.zip -workdir=./icmp
 
-CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzbox/route
+CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzing/route
 go-fuzz -bin=./route-fuzz.zip -workdir=./route
+
+CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzing/ipv4
+go-fuzz -bin=./ipv4-fuzz.zip -workdir=./ipv4
+
+CGO_ENABLED=0 go-fuzz-build github.com/mikioh/fuzzing/ipv6
+go-fuzz -bin=./ipv6-fuzz.zip -workdir=./ipv6
